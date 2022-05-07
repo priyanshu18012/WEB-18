@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <!-- <h2> <a href="signin.html">Sign in </a></h2>
+    <h2> <a href="signup.html">Sign up </a></h2> -->
+    
+    <a href="https://www.gearbest.com/">
+        <img src="https://uidesign.gbtcdn.com/GB/images/promotion/2019/a_evan/Gearbest/logo_gearbest.png?imbypass=true" alt="gearbest_home_page">  </a>
+    
+
+
+    <div id="box">
+        <div>
+           <h2>  <a href="signin.html">SIGN IN</a>  &nbsp; &nbsp; &nbsp;  <a href="signup.html"> REGISTER</a> </h2>
+           <!-- <h2>  <a href="signup.html"> sign up</a> </h2> -->
+
+        </div>
+
+        <div>
+          <input placeholder="Email" type="text">
+        </div>
+
+        <div>
+          <input placeholder="Password" type="password">
+        </div>
+
+        <div>
+           <button> Sign In</button>
+        </div>
+    </div>
+
+
+    
+
+</body>
+</html>
+
+<script>
+  var form=document.querySelector("form");
+  let LSData=JSON.parse(localStorage.getItem("userData"));
+  form.addEventListener("submit",function(event){
+      event.preventDefault();
+      var data={
+       username:form.username.value,
+       email: form.email.value,
+       password:form.password.value,
+      }
+      if(LSData != null && LSData.email === data.email){
+          alert("Account already exist. Please Signin");
+          return;
+      }
+
+      localStorage.setItem("userData",JSON.stringify(data));
+      alert("Signup successful. Please Signin")
+  })
+</script>
+
+
+
+
